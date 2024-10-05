@@ -74,7 +74,7 @@ const Body = () => {
             </thead>
             {!loading && (
               <tbody>
-                {e.map((Employee) => (
+                {employees.map((Employee) => (
                   <tr
                     key={Employee.id}
                     className="border-b border-gray-200 text-black hover:bg-blue-50 hover:text-black"
