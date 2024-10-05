@@ -1,5 +1,5 @@
 import axios from "axios";
-const Employee_SAPI_Url = "https://e-manager-server-production.up.railway.app/employees";
+const Employee_SAPI_Url = "https://e-manager-server-production.up.railway.app/api/employees";
 
 
 class EmployeeService {
