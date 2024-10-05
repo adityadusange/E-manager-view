@@ -11,9 +11,16 @@ const Body = () => {
       setLoading(true);
       try {
         const response = await EmployeeService.getEmployees();
-        setEmployees(response.data); // Assuming response.data is an array
+        console.log(response.data); // Log the response data
+        if (Array.isArray(response.data)) {
+          setEmployees(response.data);
+        } else {
+          console.error('Expected an array but got:', response.data);
+          setEmployees([]); // Set to an empty array if data is not an array
+        }
       } catch (error) {
         console.log(error);
+        setEmployees([]); // Set to an empty array in case of error
       }
       setLoading(false);
     };
@@ -54,7 +61,7 @@ const Body = () => {
       <div className="container justify-center">
         <div className="mb-4 flex justify-end">
           <button
-            className="bg-white  text-black font-bold py-2 px-4 rounded shadow-lg hover:bg-transperent"
+            className="bg-white text-black font-bold py-2 px-4 rounded shadow-lg hover:bg-transparent"
             onClick={() => navigate('/addemployee')}
           >
             Add Employee
